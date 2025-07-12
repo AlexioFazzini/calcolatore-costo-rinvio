@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Costo del Rinvio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .view {
+            display: none;
+        }
+        .view.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card {
+            background-color: white;
+            padding: 1.5rem; /* 24px */
+            border-radius: 0.75rem; /* 12px */
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+            max-width: 42rem; /* 672px */
+            margin: auto;
+        }
+        .btn {
+            width: 100%;
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* 8px */
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Schermata Iniziale -->
+    <div id="start-view" class="view active">
+        <div class="card max-w-lg">
+            <h1 class="text-3xl font-bold text-center text-slate-800 mb-4">L'Impatto delle Decisioni Rimandate</h1>
+            <p class="text-center text-slate-600 mb-6">Questo strumento ti aiuta a visualizzare le conseguenze a lungo termine del posticipare scelte importanti.</p>
+            <div class="mb-6">
+                <label for="decision-input" class="block text-sm font-medium text-slate-700 mb-2">Quale decisione stai rimandando?</label>
+                <input type="text" id="decision-input" placeholder="Es: Avviare un fondo pensione, iniziare un corso..." class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <div id="area-buttons" style="display: none;">
+                <p class="text-center font-semibold text-slate-700 mb-4">In quale area della tua vita vuoi esaminarne l'impatto?</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <button onclick="showView('financial-view')" class="btn bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:ring-emerald-400">Finanziario</button>
+                    <button onclick="showView('quality-view')" class="btn bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:ring-sky-400">Qualità della Vita</button>
+                    <button onclick="showView('time-view')" class="btn bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-400">Tempo Libero</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schermata Finanziaria -->
+    <div id="financial-view" class="view">
+        <div class="card">
+            <h2 class="text-2xl font-bold text-emerald-600 mb-2">Impatto Finanziario</h2>
+            <p class="text-slate-600 mb-6">Decisione: <span id="decision-display-financial" class="font-semibold"></span></p>
+            <div id="financial-calculator">
+                <p class="mb-4">Immagina di investire una somma oggi. Calcoliamo il suo valore futuro con un rendimento annuo del 3%.</p>
+                <div>
+                    <label for="investment-input" class="block text-sm font-medium text-slate-700 mb-2">Quanto vuoi investire (in €)?</label>
+                    <input type="number" id="investment-input" placeholder="Es: 10000" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                </div>
+                <button onclick="calculateFinancials()" class="btn bg-emerald-500 hover:bg-emerald-600 mt-4">Calcola Impatto</button>
+            </div>
+            <div id="financial-results" class="hidden space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- Schermata Qualità della Vita -->
+    <div id="quality-view" class="view">
+        <div class="card">
+            <h2 class="text-2xl font-bold text-sky-600 mb-2">Impatto sulla Qualità della Vita</h2>
+            <p class="text-slate-600 mb-6">Decisione: <span id="decision-display-quality" class="font-semibold"></span></p>
+            <div class="space-y-6">
+                <div>
+                    <label for="lifeWith" class="block text-lg font-medium text-slate-700 mb-2"><span class="text-green-600 font-bold">AGENDO OGGI:</span> Come sarebbe la tua vita tra 20 anni?</label>
+                    <textarea id="lifeWith" rows="6" placeholder="Descrivi la tua giornata tipo, le tue emozioni, le opportunità..." class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500"></textarea>
+                </div>
+                <div>
+                    <label for="lifeWithout" class="block text-lg font-medium text-slate-700 mb-2"><span class="text-red-600 font-bold">RIMANDANDO:</span> Come ti troverai tra 2 anni senza aver cambiato nulla?</label>
+                    <textarea id="lifeWithout" rows="6" placeholder="Descrivi la situazione attuale, le frustrazioni..." class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500"></textarea>
+                </div>
+            </div>
+            <button onclick="resetAndGoHome()" class="btn bg-slate-500 hover:bg-slate-600 mt-6">Torna alla Home</button>
+        </div>
+    </div>
+
+    <!-- Schermata Tempo Libero -->
+    <div id="time-view" class="view">
+         <div class="card">
+            <h2 class="text-2xl font-bold text-amber-600 mb-2">Impatto sul Tempo Libero</h2>
+            <p class="text-slate-600 mb-6">Decisione: <span id="decision-display-time" class="font-semibold"></span></p>
+            <div id="time-calculator">
+                <p class="mb-4">Questa decisione ti libererebbe del tempo? Calcoliamo quante ore potresti guadagnare.</p>
+                <div>
+                    <label for="hours-input" class="block text-sm font-medium text-slate-700 mb-2">Di quante ore extra alla settimana senti di aver bisogno?</label>
+                    <input type="number" id="hours-input" placeholder="Es: 5" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                </div>
+                <button onclick="calculateTime()" class="btn bg-amber-500 hover:bg-amber-600 mt-4">Calcola il Tempo Guadagnato</button>
+            </div>
+            <div id="time-results" class="hidden space-y-4"></div>
+        </div>
+    </div>
+
+<script>
+    const state = {
+        decision: ''
+    };
+
+    const decisionInput = document.getElementById('decision-input');
+    const areaButtons = document.getElementById('area-buttons');
+
+    decisionInput.addEventListener('input', (e) => {
+        state.decision = e.target.value;
+        if (state.decision.trim() !== '') {
+            areaButtons.style.display = 'block';
+        } else {
+            areaButtons.style.display = 'none';
+        }
+    });
+
+    function showView(viewId) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.getElementById(viewId).classList.add('active');
+        
+        // Update decision text in the new view
+        document.getElementById('decision-display-financial').textContent = state.decision;
+        document.getElementById('decision-display-quality').textContent = state.decision;
+        document.getElementById('decision-display-time').textContent = state.decision;
+    }
+
+    function resetAndGoHome() {
+        // Reset inputs
+        decisionInput.value = '';
+        document.getElementById('investment-input').value = '';
+        document.getElementById('hours-input').value = '';
+        document.getElementById('lifeWith').value = '';
+        document.getElementById('lifeWithout').value = '';
+        
+        // Reset state
+        state.decision = '';
+
+        // Hide results and show calculators
+        document.getElementById('financial-results').classList.add('hidden');
+        document.getElementById('financial-calculator').style.display = 'block';
+        document.getElementById('time-results').classList.add('hidden');
+        document.getElementById('time-calculator').style.display = 'block';
+
+        // Hide area buttons
+        areaButtons.style.display = 'none';
+        
+        showView('start-view');
+    }
+
+    function formatCurrency(value) {
+        return value.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
+    }
+
+    function calculateFinancials() {
+        const principal = parseFloat(document.getElementById('investment-input').value);
+        if (isNaN(principal) || principal <= 0) {
+            alert("Per favore, inserisci un importo valido.");
+            return;
+        }
+        const ANNUAL_RETURN_RATE = 0.03;
+        const valueIn20Years = principal * Math.pow(1 + ANNUAL_RETURN_RATE, 20);
+        const valueIn18Years = principal * Math.pow(1 + ANNUAL_RETURN_RATE, 18);
+        const costOfDelay = valueIn20Years - valueIn18Years;
+
+        const resultsContainer = document.getElementById('financial-results');
+        resultsContainer.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                <div class="bg-emerald-50 p-4 rounded-lg">
+                    <p class="text-sm text-emerald-700">Valore tra 20 anni (agendo oggi)</p>
+                    <p class="text-3xl font-bold text-emerald-800">${formatCurrency(valueIn20Years)}</p>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg">
+                    <p class="text-sm text-red-700">Valore tra 20 anni (rimandando di 2 anni)</p>
+                    <p class="text-3xl font-bold text-red-800">${formatCurrency(valueIn18Years)}</p>
+                </div>
+            </div>
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-r-lg">
+                <h3 class="font-bold">Il costo del rinvio di 24 mesi è:</h3>
+                <p class="text-2xl font-bold">- ${formatCurrency(costOfDelay)}</p>
+            </div>
+            <button onclick="resetAndGoHome()" class="btn bg-slate-500 hover:bg-slate-600">Analizza un'altra decisione</button>
+        `;
+        resultsContainer.classList.remove('hidden');
+        document.getElementById('financial-calculator').style.display = 'none';
+    }
+
+    function calculateTime() {
+        const weeklyHours = parseFloat(document.getElementById('hours-input').value);
+        if (isNaN(weeklyHours) || weeklyHours <= 0) {
+            alert("Per favore, inserisci un numero di ore valido.");
+            return;
+        }
+        const WEEKS_IN_YEAR = 52;
+        const timeIn20Years = weeklyHours * WEEKS_IN_YEAR * 20;
+        const timeIn18Years = weeklyHours * WEEKS_IN_YEAR * 18;
+        const lostTime = timeIn20Years - timeIn18Years;
+
+        const resultsContainer = document.getElementById('time-results');
+        resultsContainer.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                <div class="bg-amber-50 p-4 rounded-lg">
+                    <p class="text-sm text-amber-700">Tempo totale guadagnato in 20 anni</p>
+                    <p class="text-3xl font-bold text-amber-800">${timeIn20Years.toLocaleString('it-IT')} ore</p>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg">
+                    <p class="text-sm text-red-700">Tempo guadagnato se rimandi di 2 anni</p>
+                    <p class="text-3xl font-bold text-red-800">${timeIn18Years.toLocaleString('it-IT')} ore</p>
+                </div>
+            </div>
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-r-lg text-center">
+                <h3 class="font-bold text-lg">Rimandando, perdi <span class="text-2xl">${lostTime.toLocaleString('it-IT')}</span> ore di qualità.</h3>
+                <p class="mt-2 text-xl">Ne vale la pena?</p>
+            </div>
+            <button onclick="resetAndGoHome()" class="btn bg-slate-500 hover:bg-slate-600">Analizza un'altra decisione</button>
+        `;
+        resultsContainer.classList.remove('hidden');
+        document.getElementById('time-calculator').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
