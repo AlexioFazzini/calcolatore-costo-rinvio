@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="it"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Il Costo del Rinvio&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.view {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.view.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeIn 0.5s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(10px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1.5rem; /* 24px */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.75rem; /* 12px */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 42rem; /* 672px */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.5rem; /* 8px */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.05);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-slate-100 flex items-center justify-center min-h-screen p-4"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Schermata Iniziale --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="start-view" class="view active"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card max-w-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl font-bold text-center text-slate-800 mb-4"&gt;L'Impatto delle Decisioni Rimandate&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-center text-slate-600 mb-6"&gt;Questo strumento ti aiuta a visualizzare le conseguenze a lungo termine del posticipare scelte importanti.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label for="decision-input" class="block text-sm font-medium text-slate-700 mb-2"&gt;Quale decisione stai rimandando?&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="text" id="decision-input" placeholder="Es: Avviare un fondo pensione, iniziare un corso..." class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="area-buttons" style="display: none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-center font-semibold text-slate-700 mb-4"&gt;In quale area della tua vita vuoi esaminarne l'impatto?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="showView('financial-view')" class="btn bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:ring-emerald-400"&gt;Finanziario&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="showView('quality-view')" class="btn bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:ring-sky-400"&gt;Qualità della Vita&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="showView('time-view')" class="btn bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-400"&gt;Tempo Libero&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Schermata Finanziaria --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="financial-view" class="view"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-2xl font-bold text-emerald-600 mb-2"&gt;Impatto Finanziario&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-600 mb-6"&gt;Decisione: &lt;span id="decision-display-financial" class="font-semibold"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="financial-calculator"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-4"&gt;Immagina di investire una somma oggi. Calcoliamo il suo valore futuro con un rendimento annuo del 3%.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="investment-input" class="block text-sm font-medium text-slate-700 mb-2"&gt;Quanto vuoi investire (in €)?&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="number" id="investment-input" placeholder="Es: 10000" class="w-full px-4 py-2 border border-slate-300 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="calculateFinancials()" class="btn bg-emerald-500 hover:bg-emerald-600 mt-4"&gt;Calcola Impatto&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="financial-results" class="hidden space-y-4"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Schermata Qualità della Vita --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="quality-view" class="view"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-2xl font-bold text-sky-600 mb-2"&gt;Impatto sulla Qualità della Vita&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-600 mb-6"&gt;Decisione: &lt;span id="decision-display-quality" class="font-semibold"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="lifeWith" class="block text-lg font-medium text-slate-700 mb-2"&gt;&lt;span class="text-green-600 font-bold"&gt;AGENDO OGGI:&lt;/span&gt; Come sarebbe la tua vita tra 20 anni?&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;textarea id="lifeWith" rows="6" placeholder="Descrivi la tua giornata tipo, le tue emozioni, le opportunità..." class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="lifeWithout" class="block text-lg font-medium text-slate-700 mb-2"&gt;&lt;span class="text-red-600 font-bold"&gt;RIMANDANDO:&lt;/span&gt; Come ti troverai tra 2 anni senza aver cambiato nulla?&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;textarea id="lifeWithout" rows="6" placeholder="Descrivi la situazione attuale, le frustrazioni..." class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="resetAndGoHome()" class="btn bg-slate-500 hover:bg-slate-600 mt-6"&gt;Torna alla Home&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Schermata Tempo Libero --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="time-view" class="view"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">         </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-2xl font-bold text-amber-600 mb-2"&gt;Impatto sul Tempo Libero&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-600 mb-6"&gt;Decisione: &lt;span id="decision-display-time" class="font-semibold"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="time-calculator"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-4"&gt;Questa decisione ti libererebbe del tempo? Calcoliamo quante ore potresti guadagnare.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="hours-input" class="block text-sm font-medium text-slate-700 mb-2"&gt;Di quante ore extra alla settimana senti di aver bisogno?&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="number" id="hours-input" placeholder="Es: 5" class="w-full px-4 py-2 border border-slate-300 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="calculateTime()" class="btn bg-amber-500 hover:bg-amber-600 mt-4"&gt;Calcola il Tempo Guadagnato&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="time-results" class="hidden space-y-4"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const state = {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>decision: ''</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const decisionInput = document.getElementById('decision-input');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const areaButtons = document.getElementById('area-buttons');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>decisionInput.addEventListener('input', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.decision = e.target.value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (state.decision.trim() !== '') {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>areaButtons.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>areaButtons.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showView(viewId) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.view').forEach(v =&gt; v.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(viewId).classList.add('active');</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Update decision text in the new view</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('decision-display-financial').textContent = state.decision;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('decision-display-quality').textContent = state.decision;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('decision-display-time').textContent = state.decision;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetAndGoHome() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Reset inputs</p>
+<p class="p1"><span class="Apple-converted-space">        </span>decisionInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('investment-input').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('hours-input').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('lifeWith').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('lifeWithout').value = '';</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Reset state</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.decision = '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Hide results and show calculators</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('financial-results').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('financial-calculator').style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('time-results').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('time-calculator').style.display = 'block';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Hide area buttons</p>
+<p class="p1"><span class="Apple-converted-space">        </span>areaButtons.style.display = 'none';</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>showView('start-view');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function formatCurrency(value) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return value.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function calculateFinancials() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const principal = parseFloat(document.getElementById('investment-input').value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (isNaN(principal) || principal &lt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert("Per favore, inserisci un importo valido.");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const ANNUAL_RETURN_RATE = 0.03;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const valueIn20Years = principal * Math.pow(1 + ANNUAL_RETURN_RATE, 20);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const valueIn18Years = principal * Math.pow(1 + ANNUAL_RETURN_RATE, 18);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const costOfDelay = valueIn20Years - valueIn18Years;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const resultsContainer = document.getElementById('financial-results');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resultsContainer.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-emerald-50 p-4 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm text-emerald-700"&gt;Valore tra 20 anni (agendo oggi)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-3xl font-bold text-emerald-800"&gt;${formatCurrency(valueIn20Years)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-red-50 p-4 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm text-red-700"&gt;Valore tra 20 anni (rimandando di 2 anni)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-3xl font-bold text-red-800"&gt;${formatCurrency(valueIn18Years)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-r-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="font-bold"&gt;Il costo del rinvio di 24 mesi è:&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-2xl font-bold"&gt;- ${formatCurrency(costOfDelay)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="resetAndGoHome()" class="btn bg-slate-500 hover:bg-slate-600"&gt;Analizza un'altra decisione&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resultsContainer.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('financial-calculator').style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function calculateTime() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const weeklyHours = parseFloat(document.getElementById('hours-input').value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (isNaN(weeklyHours) || weeklyHours &lt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert("Per favore, inserisci un numero di ore valido.");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const WEEKS_IN_YEAR = 52;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const timeIn20Years = weeklyHours * WEEKS_IN_YEAR * 20;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const timeIn18Years = weeklyHours * WEEKS_IN_YEAR * 18;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const lostTime = timeIn20Years - timeIn18Years;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const resultsContainer = document.getElementById('time-results');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resultsContainer.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-amber-50 p-4 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm text-amber-700"&gt;Tempo totale guadagnato in 20 anni&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-3xl font-bold text-amber-800"&gt;${timeIn20Years.toLocaleString('it-IT')} ore&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-red-50 p-4 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm text-red-700"&gt;Tempo guadagnato se rimandi di 2 anni&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-3xl font-bold text-red-800"&gt;${timeIn18Years.toLocaleString('it-IT')} ore&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-r-lg text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="font-bold text-lg"&gt;Rimandando, perdi &lt;span class="text-2xl"&gt;${lostTime.toLocaleString('it-IT')}&lt;/span&gt; ore di qualità.&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mt-2 text-xl"&gt;Ne vale la pena?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="resetAndGoHome()" class="btn bg-slate-500 hover:bg-slate-600"&gt;Analizza un'altra decisione&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resultsContainer.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('time-calculator').style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
